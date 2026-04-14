@@ -55,9 +55,13 @@ the project where you want to use it:
 
 ## What you can ask Claude once it's wired up
 
-- *"Show me `User.Person` from the USER namespace"*
+(With `IRIS_DEFAULT_NAMESPACE` set in `.env`, you don't need to mention the
+namespace in every prompt — Claude will fall back to it. You can still say
+"in the SAMPLES namespace" when you want to target a different one.)
+
+- *"Show me `User.Person`"*
 - *"Find every class that extends `%Persistent` and has a method named `Save`"*
-- *"Rename the method `GetName` to `FetchName` in `User.Person` and recompile"*
+- *"Rename the method `GetName` to `FetchName` in `User.Person` and recompile it"*
 - *"Compile `User.Utils.cls` and show me any errors"*
 - *"What's the superclass chain of `User.MyClass`?"*
 - *"Just give me the `OnBeforeSave` method of `User.Person`"*
