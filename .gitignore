@@ -7,3 +7,7 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+
+# Claude Code / MCP local state
+.claude/
+.mcp.json
