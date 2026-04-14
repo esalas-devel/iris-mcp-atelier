@@ -121,7 +121,7 @@ If you prefer not to use a `.env` file, pass the variables inline:
 |------|---------|
 | `iris_server_info` | Server version, API version, namespace list |
 | `iris_list_namespaces` | Just the namespace list |
-| `iris_list_documents` | List documents in a namespace, filterable by type and name pattern |
+| `iris_list_documents` | List documents in a namespace, filterable by type and name pattern (SQL LIKE, so `User%`, `%Utils%`) |
 | `iris_read_document` | Read full source of a class / routine / include / CSP page |
 | `iris_write_document` | Create or overwrite a document with a full new body |
 | `iris_edit_document` | Server-side find/replace on a single document — no full round-trip |
@@ -169,6 +169,14 @@ npm start       # run the compiled server
 The server communicates over `stdio`, so running it by hand just hangs
 waiting for JSON-RPC input — that's expected. It's meant to be launched by an
 MCP client.
+
+Two smoke tests are included to verify a working setup end-to-end against
+your IRIS server (requires a populated `.env`):
+
+```bash
+node test/smoke.mjs      # exercises the Atelier client directly
+node test/protocol.mjs   # spawns the MCP server and speaks JSON-RPC to it
+```
 
 ## Troubleshooting
 

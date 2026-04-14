@@ -144,7 +144,7 @@ const TOOLS: Tool[] = [
         },
         filter: {
           type: 'string',
-          description: 'Name pattern, e.g. "User.*" for classes starting with "User".',
+          description: 'SQL LIKE pattern on the document name (use "%" as wildcard, NOT "*"). Examples: "User%" matches everything starting with "User"; "%Utils%" matches anything containing "Utils".',
         },
         includeGenerated: {
           type: 'boolean',
