@@ -59,12 +59,22 @@ the project where you want to use it:
 namespace in every prompt — Claude will fall back to it. You can still say
 "in the SAMPLES namespace" when you want to target a different one.)
 
+Simple lookups:
+
 - *"Show me `User.Person`"*
-- *"Find every class that extends `%Persistent` and has a method named `Save`"*
-- *"Rename the method `GetName` to `FetchName` in `User.Person` and recompile it"*
-- *"Compile `User.Utils.cls` and show me any errors"*
-- *"What's the superclass chain of `User.MyClass`?"*
 - *"Just give me the `OnBeforeSave` method of `User.Person`"*
+- *"What's the superclass chain of `User.MyClass`?"*
+
+Where things get interesting — multi-tool workflows Claude will run
+autonomously:
+
+- *"Trace what happens when a `User.Order` is saved: walk through `%OnBeforeSave`, list every method it calls, and flag anything that writes to a global."*
+- *"Find every class that references the deprecated `$ZF(-1)` shell-out and give me a table of which method/line each occurrence is in."*
+- *"Rename `GetName` to `FetchName` across the whole `MyApp.*` package — update the definition, every caller, and recompile. Stop and report if anything doesn't compile."*
+- *"Look at `MyApp.PriceCalculator.CalculatePrice` and suggest a handful of unit-test cases for the edge conditions you can see in the code."*
+- *"Generate a markdown cheatsheet for `MyApp.Utilities`: one line per ClassMethod with its signature and what it actually does."*
+- *"I added a new property `Email` to `User.Person`. Find every method in the class that builds a display string and update it to include the email."*
+- *"Give me a read-only audit of `MyApp.Auth.*`: list the public methods, which ones hit SQL, and whether any of them log the caller."*
 
 ## Tools exposed
 
