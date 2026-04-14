@@ -1,0 +1,48 @@
+{
+  "name": "mcp-server-iris-atelier",
+  "version": "0.1.0",
+  "description": "MCP server for InterSystems IRIS over the Atelier REST API — lets Claude Code and other MCP clients read, write, edit, search and compile ObjectScript directly against a live IRIS instance, no local files required.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-server-iris-atelier": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "intersystems",
+    "iris",
+    "objectscript",
+    "atelier",
+    "claude",
+    "claude-code",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
